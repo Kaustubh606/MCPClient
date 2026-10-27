@@ -3,13 +3,11 @@ package com.aiwork.mcpclient.controller;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
 import org.springframework.ai.tool.ToolCallbackProvider;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
@@ -33,5 +31,16 @@ public class MCPClientController {
         return Arrays.stream(toolCallbackProvider.getToolCallbacks())
                 .map(tool -> tool.getToolDefinition().name())
                 .toList();
+    }
+
+    @GetMapping("/openai/custom-mcp-server")
+    public String callCustomMCPServer(@RequestParam("message") String message, @RequestHeader("username") String username) {
+        return openAiChatClient.prompt()
+                .user(message)
+                .toolContext(Map.of(
+                        "username", username
+                ))
+                .call()
+                .content();
     }
 }

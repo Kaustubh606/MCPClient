@@ -1,6 +1,13 @@
 
 {
   "mcpServers": {
+    "mcp-server-stdio": {
+      "command": "C:\\Program Files\\Java\\jdk-25.0.4\\bin\\java.exe",
+      "args": [
+        "-jar",
+        "E:\\Study\\AI\\MyGithub\\MCPServerStdio\\target\\mcpserverstdio-0.0.1-SNAPSHOT.jar"
+      ]
+    },
     "filesystem": {
       "command": "cmd.exe",
       "args": [
@@ -9,6 +16,17 @@
         "-y",
         "@modelcontextprotocol/server-filesystem",
         "E:\\Study\\AI\\MyGithub\\MCPResource"
+      ]
+    },
+    "github": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
       ]
     }
   }
