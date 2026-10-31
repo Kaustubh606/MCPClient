@@ -22,12 +22,12 @@ public class McpServerToolFilter implements McpToolFilter {
                     toolName, serverName);
             return false;
         }
-        if (serverName.toLowerCase().contains("write_")) {
+        if (toolName.toLowerCase().contains("write_")) {
             logger.warn("Tool '{}' rejected because it belongs to the blocked MCP server '{}'",
                     toolName, serverName);
             return false;
         }
-        if (serverName.toLowerCase().contains("file")) {
+        if (toolName.toLowerCase().contains("file")) {
             logger.warn("Tool '{}' rejected because it belongs to the blocked MCP server '{}'",
                     toolName, serverName);
             return false;
