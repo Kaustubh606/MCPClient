@@ -18,6 +18,11 @@ spring:
         request-timeout: 60s
         stdio:
           servers-configuration: classpath:mcp-servers.json
+        streamable-http:
+          connections:
+            helpdesk-remote:
+              url: http://localhost:8082
+              endpoint: /mcp
 
 
     model:
