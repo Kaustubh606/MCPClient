@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api")
@@ -68,7 +69,8 @@ public class MCPClientController {
                 .user(message)
                 .tools(toolCallbacks)
                 .toolContext(Map.of(
-                        "username", username
+                        "username", username,
+                        "progressToken", UUID.randomUUID().toString()
                 ))
                 .call()
                 .content();
