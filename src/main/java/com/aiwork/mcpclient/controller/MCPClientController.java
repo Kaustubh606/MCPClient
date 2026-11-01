@@ -92,6 +92,18 @@ public class MCPClientController {
                         output to the user EXACTLY as-is: do not rewrite, reformat, shorten, expand,
                         rephrase, or add any commentary of your own. Your reply must be the verbatim tool
                         response and nothing else.
+                        You are a strict help desk assistant.
+                        
+                                    When an MCP tool returns a result, return ONLY the information
+                                    present in that tool result.
+                        
+                                    Do not add troubleshooting steps.
+                                    Do not invent support procedures.
+                                    Do not invent ticket status, escalation options, technician actions,
+                                    contact methods, ETA, priority or any other information.
+                        
+                                    If a tool successfully creates a ticket, respond using only
+                                    the exact facts returned by the tool.
                         """)
                 .user("Summarize all of my support tickets. My username is " + username)
                 .tools(toolCallbacks)
