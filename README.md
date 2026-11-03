@@ -1,6 +1,7 @@
 # MCPClient
 
 # Spring AI MCP Client
+### *** IMP NOTE: Original author of the concept and structure of the code is eazybytes, I have modified it as and when required for my study purpose of AI related concepts learning. ***
 
 A Spring Boot application demonstrating how an AI-powered Java application can act as a **Model Context Protocol (MCP) Client** and interact with multiple MCP servers using both:
 
